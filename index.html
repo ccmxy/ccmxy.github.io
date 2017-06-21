@@ -1,1 +1,664 @@
-<h1>hi, it's colleen</h1>
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Chapter 1</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="author" content="Colleen Minor" />
+                <link rel="stylesheet" type="text/css" href="custom.css" />
+								<link rel="stylesheet" type="text/css" href="styles.css" />
+                <script src="jquery-1.8.3.min.js"></script>
+                <script src="scripts.js"></script>
+								<script src="bounce.js"></script>
+								<script src="https://w.soundcloud.com/player/api.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div class="container">
+
+			<header>
+				<h1 class="title"> Introduction to Computer Networking
+					<span>Notes from Ch. 1 of Computer Networking: A Top-Down Approach (6th ed.)</span>
+				  <span>by James F. Kurose and Keith W. Ross </span>
+					<span> A webapage made by Colleen Minor to learn this during my first week of the course</span></h1>
+
+					<!-- No more widget: -->
+					<!-- <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/users/1539950/favorites" width="100%" height="465" scrolling="no" frameborder="no"></iframe> -->
+			</header>
+				<nav id="menu" class="nav">
+					<ul>
+				<hx>Table of Contents</hx>
+						<li>
+							<a href="#" onclick="$('#section-2').animatescroll();">
+								<span class="icon">
+									<i aria-hidden="true" class="icon-services"></i>
+								</span>
+								<span>What is the Internet?</span>
+							</a>
+						</li>
+						<li>
+							<a href="#" onclick="$('#section-3').animatescroll();">
+								<span class="icon">
+									<i aria-hidden="true" class="icon-portfolio"></i>
+								</span>
+								<span>Packet Switches</span>
+							</a>
+						</li>
+						<li>
+							<a href="#" onclick="$('#section-3a').animatescroll();">
+								<span class="icon">
+									<i aria-hidden="true" class="icon-contact"></i>
+								</span>
+								<span>Queing Delays and Packet Loss</span>
+							</a>
+						</li>
+						<li>
+							<a href="#" onclick="$('#section-4').animatescroll();">
+								<span class="icon">
+									<i aria-hidden="true" class="icon-blog"></i>
+								</span>
+								<span>Circuit Switching</span>
+							</a>
+						</li>
+						<li>
+							<a href="#" onclick="$('#section-5').animatescroll();">
+								<span class="icon">
+									<i aria-hidden="true" class="icon-team"></i>
+								</span>
+								<span>A Service Description</span>
+							</a>
+						</li>
+						<li>
+							<a href="#" onclick="$('#section-6').animatescroll();">
+								<span class="icon">
+									<i aria-hidden="true" class="icon-contact"></i>
+								</span>
+								<span>ISPs</span>
+							</a>
+						</li>
+						<li>
+							<a href="#" onclick="$('#section-7').animatescroll();">
+								<span class="icon">
+									<i aria-hidden="true" class="icon-contact"></i>
+								</span>
+								<span>Exercises</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+		</div>
+		<br><br>
+
+                <div class="main clearfix">
+                        <div id="section-2">
+                            <div class="content-wrapper w70">
+                                <h1>What is the Internet?</h1>
+
+                                <p>The Internet is a network made up of hundreds of millions of interconected devices referred to as
+																<strong>hosts</strong> (also referred to as <strong>end-systems</strong>.)
+																They are referred to as end systems because they sit at the edge of the Internet, and they are referred to as hosts because
+																they host applications such as a Web browser program, a Web server program, or an e-mail server program.</p>
+
+																<p><strong>End-systems</strong> are connected by <strong>communication links</strong> (physical media like coaxil cable,
+																copper wire, optical fiber and radio spectrums) and <a href="#" onclick="$('#section-3').animatescroll();"><strong>packet-switches.</strong></a></p>
+
+																<p>The <strong>access network</strong> is the network that physically connects an end-system to <strong>the first router</strong>
+																	(aka <strong>the edge router</strong>) on the path from the end system to any distant system. </p>
+																<br><br><button class="btn" onclick="$('#section-3').animatescroll({scrollSpeed:3000,easing:'easeInOutBounce'});">Next: Packet Switches</button><br/><br/>
+                            </div>
+                        </div>
+
+                        <div id="section-3">
+                            <div class="content-wrapper w70">
+															<h1>Packet Switches</h1>
+
+															<p>When one end-system has to send data to another end-system, the sending system segments the data and adds <strong>header bytes</strong>
+																 to each segment. The resulting packages of information (packets) are sent through the network to the end system,
+															 where they are reassembled into the original data.</p>
+
+															 <p>The header of each packet contains the IP address. This works like a postal system. A packet arrives at a router in the network and the
+																 router, the router examines a portion of the packet's destination address and forwards the packet to an adjacent router. It does this with
+																 the use of a <strong>forwarding table</strong> that maps portions of the desination address to one of that router's outbound links.<br>
+															 The Internet has a number of special <strong> routing protocols</strong> that are used to automatically set the forwarding tables.</p>
+
+
+
+																<p>A <strong>packet switch</strong> takes a package that's arriving into an incoming communication link, and forwards it
+																to an outgoing communication link.</p>
+
+																<p>The two most prominent types of packet switches are <strong> routers </strong> and <strong> link-layer switches</strong>.</p>
+
+																<p>Routers are typically used in the network's <strong>core.</strong> </p>
+
+																<p>Link-layer switches are typically used to <strong>access networks</strong>. </p>
+
+																<p>The series of communication links and package switches that a packet goes through on its way from a sending
+																	to recieving system is typically called a <strong>route</strong> or <strong>path</strong>.</p>
+
+																	<p>Packages are transmitted to each communication link at <strong>a rate equal to the full transmission rate of the link</strong>.
+																		So if a source end-system or packet-switch is sending a packet of L bits over a link with a transmission rate of
+																		R bits/sec, then the time to trasmit the package is L/R seconds. </p>
+
+																		<p>Most packet switches use <strong>store-and-forward transmission</strong> at the inputs to the link. This means that the
+																			packet-switch <strong>must receive the entire packet</strong> before it can begin to <strong>transfer the first bit of the packet into
+																			the outbound link</strong>.</p>
+
+																			<p> Now, let's calculate the time that a system using the store-and-forward method needs to forward three packets
+																				from a source, to a router, to a destination.<br>
+																				<ul>
+																				<li>Step 1: packet1 ----> router = L/R seconds</li>
+																				<li>Step 2: packet2 ----> router and packet1 --->destination = L/R seconds</li>
+																				<li>Step 3: packet3 ----> router and packet2 --->destination = L/R seconds</li>
+																				<li>Step 4: packet3 ---> destination = L/R seconds</li>
+																			</ul>
+																			Total time: 4L/R seconds.
+
+																		</p>
+
+																		<p>Another important formula, relevance unclear: <br>
+																				Where:
+																				<ul>
+																					<li> L = Bits</li>
+																					<li> R = Rate (in bits/sec) </li>
+																					<li> N = number of links each at rate R</li>
+
+																				</ul>
+
+																				The end-to-end delay = N*(L/R)<br>
+																				<strong>d<sub>end-to-end</sub> = N (L/R)</strong>
+																		</p>
+
+
+															<br><br><button class="btn" onclick="$('#section-3a').animatescroll({scrollSpeed:3000,easing:'easeOutElastic'});">Next: Queing Delays and Packet Loss</button><br/><br/>
+                            </div>
+                        </div>
+
+												<div id="section-3a">
+														<div class="content-wrapper w70">
+															<h1>Queing Delays and Packet Loss</h1>
+																							<p>Eech packet switch has multiple links attached to it. For each attached link, the packet switch has an <strong>output buffer</strong> (also called an <strong>output queue</strong>).</p>
+																							<p><strong>Output Queue:</strong> Stores packets that are the router is about to send into the link that it refers to.</p>
+																							<p> If a link is busy with the transmission of a packet, and another packet arrives there, it must wait in the output buffer. This is a <strong>queing delay.</strong>
+
+																							If the finite buffer space is <strong> full</strong>, packet-loss will occur: either the arriving packet or one in the queue is <strong>dropped.</strong></p>
+																							<br><br><button class="btn" onclick="$('#section-4').animatescroll({scrollSpeed:2000,easing:'easeOutBounce'});">Next: Citcuit Switching</button><br/><br/>
+
+														</div>
+													</div>
+
+                        <div id="section-4">
+                            <div class="content-wrapper w70">
+
+																<h1>Circuit Switching</h1>
+																<p>In circuit-switched networks, the resources needed along a path to provide for
+																	 communication between the end systems are <strong>reserved</strong> for the duration of the communication session between the end systems.<br>
+																	 In packet-switched networks, these resources are <strong>not</strong> reserved. The circuit-switched network is like a resturaunt that requires reservations,
+																	and the packet-switched network is like one that doesn't: in the packet-switched network, you have to deal with queing delays and whatnot, but in the circuit-switched
+																network you have to order in advanced. </p>
+
+																<p> An example of a circuit switched network is a traditional telephone network. A connection (a <strong>circuit</strong> in telephony jargon) between two users must be established between the sender
+																	and reciever, for which the switches on the path maintain connection state for that connection. The network reserves a constant transmission rate in the network's links
+																	for the duration of the connection. Therefor the sender can transfer the data to the receiver at a <strong>gaurenteed</strong> constant rate.</p>
+																	<p>A circuit in a link is implemented with either frequency-division multiplexing or time-division multiplexing.
+
+																		<ul>
+																			<li><strong>Frequency-division multiplexing (FDM):</strong>
+																				For the duration of the connection, a link dedicates a frequency band to each connection. The width of the band is called the bandwidth. "the frequency spectrum of a link is divided up among the connections established across the link."</li>
+																			<li><strong>Time-division multiplixing (TDM):</strong> Time is divided into frames of a fixed duration, and each frame is divided into a fixed number of time slots.
+																			Across a link, a connection dedicates one timeslot per frame.</li>
+																		</ul>
+
+																		<p> Math: </p>
+																		<p> For TDM, the transmission rate of a circuit is equal to the frame rate multiplied by the number of bits in a slot. Example: If a link trasmits 8,000 frames
+																			per second and each slot consists of 8 bits, the transmission rate of a circuit is 64 kbps.</p>
+
+																		<p> Another problem: We want to send a file of <strong>640,000 bits</strong> from Host A to Host B over a circuit-switched network, and all the links in the network use <strong>TDM with 24 slots</strong> and <strong>have a bit rate
+																			of 1.563 Mbps</strong>, and it takes <strong> 500 msec</strong> to establish an end-to-end circuit before Host A can begin to transmit the file. How long does it take to send the file?
+
+
+
+																		<ul>
+																			<li>Step 1) Calculate transmission rate of a circuit (remember that the network dedicates just 1 timeslot per frame): (1.536 Mbps)/24 slots = 64 kbps (there are 1,000 kb in 1 mb)</li>
+																				<li> Step 2) Divide the size of the file by the transmission rate: 640,000 bits/64 kbps = 10 seconds (there are 1000 bytes in 1 kb, so it's 640 k bits/ 64 k bitsPerSeconds = 10 secs)</li>
+																					<li> Step 3) Add the 500 mscec = 1/2 seconds. So the total time is 10.5 seconds. <strong> The transmission time is indpendant of the number of links: it would be 10 seconds whether it were 1 or 100 links.</strong></li>
+																			</ul>
+																	</p>
+
+																	<p>Another example: How long does it take to send a <strong>2.0 MiB</strong> file from Host A to Host B over a circuit-switched network, assuming:
+																	<br>Total link transmission rate = <strong>26.4 Gbps</strong>.
+																<br>	Network is TDM, with <strong>18.0</strong> permitted users, each with an equal time slot size.
+																<br>	A link connection requires a setup time of <strong>90.8 ms</strong>.
+																<br>	Your answer should be in miliseconds (ms):</p>
+																<ul>
+																	<li>Step 1) Calculate transmission rate of a circuit: (26.4 Gbps)/18 users = 26.4 billion/18 = 1.466... billion bps </li>
+																		<li> Step 2) Divide the size of the file by the transmission rate: (2^20 * 8 * 2) bits / (26.4 billion/18) =  0.0114390 seconds = 11.4390109091 ms + 90.8 ms = 102.24 ms </li>
+																	</ul>
+															</p>
+
+																 <br><br><button class="btn" onclick="$('#section-5').animatescroll({scrollSpeed:2000,easing:'easeOutBounce'});">Next: A Service Description</button><br/><br/>
+
+                            </div>
+                        </div>
+
+                        <div id="section-5"  onclick="$('#section-6').animatescroll({scrollSpeed:3000,padding:-30,easing:'easeInOutBack'});">
+                            <div class="content-wrapper w70">
+                                <h1>A Service Description</h1>
+																<p>Services like electonric mail, web surfing, social networks, instant messeging, video streaming, P2P file sharing, etc.
+																are said to be <strong>distributed applications.</strong> This is because they involve multiple end systems that exchange data with each
+															other. Internet applications <strong>run on end systems--</strong> they do not run in the packet switches in the network core.
+
+														Although packet switches facilitate the exchange of data among end systems, <strong>they are not concerned with the application that is the source or sink of the data.</strong> </p>
+
+
+																<br><br><button class="btn" onclick="$('#section-6').animatescroll({scrollSpeed:2000,easing:'easeOutElastic'});">Next: ISPs</button><br/><br/>
+
+                        </div>
+											</div>
+
+                        <div id="section-6">
+                            <div class="content-wrapper w60 disp_inl_blk">
+															<h1>ISPs</h1>
+
+															<p>End systems access the Internet through <strong>Internet Service Providers (ISPs)</strong>. </p>
+
+															<p>Each ISP is in itself a network of packet switches and communication links. ISPs provide Internet access to both
+															users and content-providers, connecting websites directly to the Internet.</p>
+
+															<p>Lower-tier ISPs are connected through national and international
+																upper-tier ISPs, such as Level 3 Communications, AT&T, Sprint, and NTT. An upper-tier ISP consists of a high-speed router
+															interconnected with high-speed fiber-optic links.</p>
+
+															<p>End-systems, packet-switches and more run <strong>protocols</strong> that control the sending and receiving of information within the Internet.</p>
+															<p>Two important protocols:</p>
+															<ul>
+																	<li>The <strong>Transmission Control Protocol(TCP)</strong></li>
+																	<li>The <strong>Internet Protocol (IP)</strong> </li>
+															</ul>
+
+															<p>Together, these are known as TC/IP.</p>
+
+															<p><strong>Internet Standards</strong> are developed by the <strong>Internet Engineering Task Force (IETF)</strong>.
+																The IETF standards documetns are called <strong>requests for comments (RFCs)</strong>. RFCs define protocols such as
+																TCP, IP, HTTP (for web), and SMTP (for email). There are currently more than 6,000 RFCs.
+
+															</p>
+
+															<p>The IEE 802 LAN/MAN Standards Committee specifies the Ethernet and wireless WiFi standards.</p>
+																	<br><br><button class="btn" onclick="$('#section-7').animatescroll({scrollSpeed:2000,easing:'easeOutBounce'});">Next: Exercises</button><br/><br/>
+															</div>
+                            </div>
+
+														<div id="section-7">
+																<div class="content-wrapper w70 disp_inl_blk">
+
+																	<h1>Lecture 1: Networks, the Internet, and Units </h1>
+
+																	<p>1) What are some factors in why computer networking so complicated?</p>
+																	<p class="hidden">Test test</p>
+
+
+																	<p>2) Complete the following definitions: </p>
+																		<ul>
+																			<li>A network is: <span class="hidden"> a system for connecting computers using a single transmission technology</span> </li>
+																			<li>The internet is:<span class="hidden">a network if networks</span> </li>
+																		</ul>
+
+																	<p> 3) Who invented the internet? </p>
+																	<span class="hidden">DARPA financed initial research, and a number
+																		of universities devoted significant research personnel to developing and establishing
+																		communication protocols for interconnectivity hardware and software.</span>
+
+																	<p> 4) What is RFC? </p>
+																	<span class="hidden">A repository for comments, and <strong>the place</strong> to find (and post) the adopted standards for
+																		networking – in addition to a major resource for students and researchers in networking.</span>
+
+
+																	<p> 5) What is the IETF? </p>
+																	<span class="hidden">The Internet Engineering Task Force – who produces documentations which lay out
+																	standards for the Internet (without official decree).</span>
+
+
+																	<p> 6) Convert the following units (hint: if it ends in <strong>ps</strong> its a measurement <strong>bits</strong>, otherwise it's a measurement of <strong>bytes</strong>):
+																		<ul>
+																			<li>1 MB =  <span class="hidden">8,000,000</span> bits</li>
+																			<li>800 B =  <span class="hidden">6400</span> bits</li>
+																			<li>12 KiB =  <span class="hidden">2<sup>10</sup> x 8 x 12 = <strong>98,304</strong> </span> bits</li>
+																			<li>3 MiB =  <span class="hidden">8 x 2<sup>20</sup> x 3 = <strong>25,165,824</strong> </span> bits</li>
+																			<li>3 KiB =  <span class="hidden"> 3 x 2<sup>10</sup> = 3072</span> bytes</li>
+																			<li>120 B = <span class="hidden">Simple: 120 </span> bytes</li>
+																			<li>12 Kbps = <span class="hidden"> 1000 x 12 = 12,000 </span>  bps</li>
+																			<li>3 Mbps = <span class="hidden"> 1,000,000 x 3 = 3,000,000 </span> bps</li>
+																			<li>10 Gbps = <span class="hidden"> 1,000,000,000 times 10 = 10,000,000,000 </span> bps</li>
+																		</ul>
+																	</p>
+
+																	<h1>Lecture 2: Overview of Networking</h1>
+
+																	<p>1) What does a protocol do?</p>
+																	<span class="hidden">
+																		<ul>
+																		<li>Specifies the format and order of messages sent and received among network
+																		entities.</li>
+																		<li>Specifies actions taken upon the transmission and receipt of messages.</li>
+																	</ul>
+																	</span>
+
+																	<p>2) What are some human protocols</p>
+																	<span class="hidden">Clinking a glass for a toast, tapping a glass with fork to announce a toast, raising your
+																		hand in a classroom, passing a “sharing stick” around a circle, Red/Yellow/Green traffic
+																		lights, etc…….</span>
+																	<p>3) What devices reside on the network edge?</p>
+																	<span class="hidden">End Systems / Hosts (smartphones, computers, servers, peers, etc…)</span>
+
+																	<p>4) What devices reside in the network core?</p>
+																	<span class="hidden">Interconnection devices (routers, switches, associated network cards, etc…)
+																	</span>
+																	<p>5) What is the difference between the client/server model and the Peer-to-Peer (P2P) model</p>
+																	<span class="hidden">A client-server model has a dedicated service provider, and a dedicated service consumer.
+																		In a peer-to-peer model, there is no dedicated provider/consumer, and organization is
+																		handled amongst the hosts</span>
+
+																	<p>6) What are some components of the TCP protocol?</p>
+																	<span class="hidden">
+																		<ul>
+																		<li>Connection-Oriented with 3-way connection-setup handshake</li>
+																		<li>Reliable, in-order data transfer</li>
+																		<li>Flow control</li>
+																		<li>Congestion control</li>
+																	</ul>
+																	</span>
+																	<p>7) What are some components of the UDP protocol?</p>
+																	<span class="hidden">
+																		<ul>
+																		<li>Connection-less</li>
+																		<li>Unreliable data transfer (Fire & Forget)</li>
+																		<li>No flow or congestion control</li>
+																	</ul>
+																	</span>
+
+																	<h1>Lecture 3a: Circuit-switching and Packet-switching</h1>
+
+																	<p>1) A <span class="hidden">circuit</span>-switched network has a dedicated circuit through which information is
+																	sent, whereas a <span class="hidden">packet</span>-switched network sends information in “chunks” through
+																	a network on shared media</p>
+
+																	<p>2) What units are we using for network bandwidth? <span class="hidden">bps</span></p>
+																	<p>3) What units are used for transmission rate? <span class="hidden">bps</span></p>
+
+																	<p>4) What is done with network resources in a circuit switched network to allow multiple
+																		users to utilize the network?
+																		<span class="hidden">	The network resource is divided into chunks</span>
+																	</p>
+
+
+																	<p>5) What is the difference between TDM and FDM</p>
+																	<span class="hidden">	TDM divides the available bandwidth into discrete blocks of time, during which only one
+																		of the users is permitted to transmit. FDM divides the available into bands of frequency
+																		(like radio stations), in which only one user is permitted to transmit</span>
+
+																	<p>6) How long does it take to send a 13 KiB file from Host A to Host B over a circuitswitched
+																		network, assuming<br>
+																		Total link transmission rate = 500Mbps<br>
+																		The network is FDM, with 250 permitted users, each with an equal bandwidth share<br>
+																		A link connection setup requires 100ms.</p>
+
+																		<p class="hidden">
+
+																		IMPORTANT: bps stands for <strong>bits</strong> per second, but KiB stands for Kiba<strong>byte</strong><br>
+
+																		L (size in bits):<br>
+																		 13 KiB = 13 x 1024 <strong>bytes</strong> = 13,312 bytes <br>
+																		 13,312 bytes x 8 = <strong>106,496 bits.</strong><br>
+
+																		 R (rate in bits per second):  500Mbps/250 users = 2 Mbps = 2,000,000 bps (<strong>Mega</strong> means <strong>Million</strong>)<br>
+
+																		 106,496 bits/2,000,000 bitsps = 0.053248 seconds. <br>
+																		 0.053248 x 1000 ms = 53.248 ms.
+																		 53.248 ms + 100ms connection setup = <strong>153.248 ms.</strong>
+																	 </p>
+
+
+																		<p>7) What are three important functions of a packet-switched network?</p>
+																		<span class="hidden"> Packet Construction, Transmission, and Interpretation</span>
+
+																	<h1>Lecture 3b: Packet-switched vs. Circuit-switched networks</h1>
+
+																	<p>1) Describe statistical multiplexing</p>
+																	<span class="hidden">
+																		Statistical multiplexing is the adaptive sharing of the transmission medium in packetswitched
+																		networks, based on whether or not hosts have data to transmit (on-demand),
+																		preventing the medium from being wasted by hosts without any data to transmit.
+																	</span>
+
+																	<p>2) Which are faster: Circuit-switched networks or Packet-switched networks?</p>
+																	<span class="hidden">It depends! A circuit-switched network may be faster due to the packet header overhead
+																		of packet-switched networks. However, a packet-switched network may be faster due to
+																		its more adaptive use of the transmission medium. It’s even more complicated than this…</span>
+
+																	<p>3) What is the total utilization of a circuit-switched network, accommodating 10 users with
+																		equal bandwidth, with the following users:
+
+																		<ul>
+																			<li>Four users are utilizing 100% their bandwidth</li>
+																			<li>Two users are utilizing 60% of their bandwidth</li>
+																			<li>Four users are inactive</li>
+																		</ul>
+																		<span class="hidden">
+
+																				Four users utilizing 100% of their bandwidth: 4 users * (1.00) using all of bandwidth * 0.10 = 0.4 + <br>
+																				Two users utilizing 60%: 0.6 * 0.1 * 2 = 0.12 + <br>
+																				Four users inactive: 0 (0 * 0.1 * 4) = <br>
+																				0.52 = <strong>52%</strong>
+
+																		</span>
+
+																	</p>
+
+																	<p>4) What are some of the effects of congestion in a packet-switched network?</p>
+																	<span class="hidden">Packet delay, packet loss, jitter etc...</span>
+
+
+																	<h1> Lecture 4: Network Structure and Performance</h1>
+
+																	<p>1) What is an access network?</p>
+																	<span class="hidden">A network that allows a host to connect to the internet</span>
+																	<p>2) <span class="hidden">Throughput</span> is the rate at which bits are actually transferred between sender/receiver/p>
+																	<p>3) Describe the sources of nodal delay in packet-switched networks.</p>
+
+																	<span class="hidden">
+																			<ul>
+																				<li>Processing delay: Time spent processing header information, checking bit errors, and
+																					deciding outport link</li>
+																					<li>Queueing delay: Time waiting for the transmission medium</li>
+																					<li>Transmission delay: Time spent being placed on the transmission medium, limited by the
+																						transmission protocol.<br>
+																						 Where <strong>R</strong>=link bandwidth (speed in bits per second, i.e. “bps”) and <strong>L</strong>=packet length (in bits),<br>
+																					 <strong>Transmission Delay = L/R</strong></li>
+																					<li>Propagation delay: Time spent traveling on the physical medium
+																						<br>Where <strong>d</strong> = length of physical link (in <strong>meters</strong>) and
+																						<strong>s</strong> = propogation speed in medium (~2.5 x 10<sup>8</sup> m/sec):<br>
+																						<strong>propogation delay = d/s</strong>			</li>
+
+
+																				</ul>
+																		</span>
+
+																		<p>4) What is the equation for end-to-end delay?</p>
+																		<span class="hidden">d<sub>nodal</sub> = d<sub>proc</sub> + d<sub>queue</sub> + d<sub>trans</sub>+ d<sub>prop</sub></span>
+
+																		<p>5) Consider two hosts (A and B) connected by a single link with transmission rate <strong>R</strong> bps.<br>
+																			The hosts are separated physically by <strong>d</strong> meters along a cable for which the speed of
+																			propagation is <strong>s</strong> meters per second. Host A sends a packet of length <strong>L</strong> bits to host B</p>
+																			<ul>
+																		<li>	a. Show the propagation delay d<sub>prop</sub> in terms of<strong> d </strong>and <strong>s</strong>: </li>
+																		<span class="hidden">d<sub>prop</sub> = d/s</span>
+
+																			<li> b. Show the transmission delay d<sub>trans</sub> in terms of <strong>L</strong> and <strong>R</strong>:</li>
+																			<span class="hidden">d<sub>trans</sub> = L/R</span>
+
+																		<li>	c. Suppose Host A begins to transmit at time t = 0. At time t = d<sub>trans</sub> where is the last
+																			bit of the packet?</li>
+																			<span class="hidden">Just leaving the sending host (Host <strong>A</strong>)</span>
+
+
+																		<li>	d. Suppose that d<sub>prop</sub> > d<sub>trans</sub>. At time t = d<sub>trans</sub>, where is the first bit of the packet?</li>
+																	<span class="hidden">	Somewhere in the link between Host A and Host B</span>
+
+																	<li>	e. Suppose that d<sub>prop</sub> < d<sub>trans</sub>. At time t = d<sub>trans</sub>, where is the first bit of the packet?</li>
+																	<span class="hidden"></span>
+																	<span class="hidden">	At the receiving host (Host B)</span>
+
+
+																	<li>	f. Let s = 2.5x10<sup>8</sup> m/s, L = 120 bits, R = 56 Kbps. Find <strong>d</strong> such that d<sub>prop</sub> = d<sub>trans</sub>.</li>
+																	<span class="hidden">
+																	Set d/s = L/R<br>
+																	120 / 56,000 = d / 250,000,000<br>
+																	d = 250,000,000 * 120 / 56,000 = 535,714.28 m ≈ 535.7 km<br>
+																</span>
+
+
+																</ul>
+																			<p>
+
+																	<p>6) Suppose that there are N packets in a router’s queue. Given a constant packet length of L,
+																		and a constant transmission rate R, what is the average queuing delay for the N packets?</p>
+																		<span class="hidden">Complicated algebra</span>
+																		<h1>Bonus</h1>
+
+																		REAL ONE: <br>
+																		Time to translate and transdelay + propdleay = (360 / 2.1 million) + (502.4 * 1000)/(2.5 * 10^8) + (360/42,000) = 0.01075245714 seconds = 10.7524571429 ms. <br>
+
+																		Subtract the time to create the first bit: 10.7524571429 - ((1/42000) * 1000) = 10.7286476199. Round to 10.73. <br>
+
+
+																		<p>Suppose there are 79.0 packets entering a queue at the same time. Each packet is of size 7.0 MiB. The link transmission rate is 1.3 Gbps. What is the queueing delay of packet
+																			number 44.0 (in milliseconds, rounded to one decimal place, e.g. 0.01234 seconds would be entered as "12.3")</p>
+
+																			<span class="hidden">
+																				<p>
+																					L = (7 * 8 * 2^20) = 58720256 bits <br>
+																					R = (1.3 billion) bits <br>
+																					Transmission rate = ( (7 * 8 * 2^20) / 1.3 billion ) * 1000 = 45.1694276923 <br>
+																					<strong>Important: Multiply by 43 instead of 44 because the first transmission has no delay</strong>:
+																					43 * 45.1694276923 = 1942.3
+																			</span>
+
+
+																			<br>
+
+																			<br>
+																			<span class="hidden">
+																			 Get the number of bits in each packet: L = 2<sup>20</sup> * 7 * 8 = 58,720,256 bits. <br>
+																			 Get bits per second: 1.3 x (GBPS = gigabits per second... 1 billion bits in a gigabit) R = 1,300,000,000 bits per second<br>
+																			 REMEMBER TO SUBTRACT 1 PACKET: <br>
+																			 4<strong>3</strong>(58,720,256/1,300,000,000) = 1.98745481846 seconds = 1987.454... ms<br>
+																		 </span>
+
+																			 <br>
+																			 Given the attached image, and:
+
+																			 Host A converts analog to digital at a = 42.0 Kbps<br>
+																			 Link transmission rate R = 2.1 Mbps<br>
+																			 Host A groups data into packets of length L = 45.0 bytes<br>
+																			 Distance to travel d = 502.4 km<br>
+																			 Propagation speed s = 2.5 x 108 m/s<br>
+																			 Host A sends each packet to Host B as soon as it gathers a whole packet.<br>
+																			 Host B converts back from digital to analog as soon as it receives a whole packet.<br>
+																			 How much time elapses from when the first bit starts to be created until the conversion back to analog begins?<br>
+																			 <span class="hidden">
+																				 Time to translate and transdelay + propdleay =
+																				 (360 / 2.1 million) + (502.4 * 1000)/(2.5 * 10^8) + (360/42,000) = 0.01075245714 seconds = 10.7524571429 ms. Round to 10.75<br>
+
+
+																				 Below is bad, erase:<br>
+ 																				Subtract the time to create the first bit: 10.7524571429 - ((1/42000) * 1000) = 10.7286476199. Round to 10.73.  <br>
+																			</span>
+
+																			<br> Similar:
+																			Host A converts analog to digital at a = 48.0 Kbps <br>
+																			Link transmission rate R = 2.0 Mbps <br>
+																			Host A groups data into packets of length L = 108.0 bytes<br>
+																			Distance to travel d = 755.7 km<br>
+																			Propagation speed s = 2.5 x 108 m/s<br>
+																			Host A sends each packet to Host B as soon as it gathers a whole packet.<br>
+																			Host B converts back from digital to analog as soon as it receives a whole packet.<br>
+
+																			How much time elapses from when the first bit <strong>starts</strong> to be created until
+																			the conversion back to analog begins? Give answer in milliseconds (ms) to two decimal places,
+																			 normal rounding, without units (e.g. 1.5623 ms would be entered as "1.56" without the quotes)<br>
+
+																			 <p class="hidden">
+																				Bit rate of analog-to-digital: (48,000) bps<br>
+																				Packet size (<strong>L</strong>): (108 * 8) = 864 bits <br>
+																				Time to translate all bits from analog to digital: (864/48,000) = 0.018 seconds
+																				Link transmission rate(<strong>R</strong>): (2.0 * 1 million) = 2 million bps <br>
+																				Distance to travel (<strong>d</strong>): (755.7 * 1000) = 755,700 <br>
+																				Popogation speed ((<strong>s</strong>):  2.5 x 10<sup>8</sup> m/s <br>
+																				Transmission delay: (864/2 million) = 0.000432 seconds. <br>
+																				Propogation delay: 755700/(2.5 x 10<sup>8</sup>) = 0.0030228 seconds<br>
+																				Translate time (0.018 s) + d<sub>trans</sub> (0.000432 s) + d<sub>prop</sub> (0.0030228 s)= 0.0214548 seconds = 21.45488 ms = roughly 21.45 ms
+																			</p>
+
+
+
+
+																			 Another:
+																			 Suppose there are 5.0 routers in sequence between Host A and Host B, all of which use store-and-forward routing. What is the total end-to-end delay for a packet originating from Host A with destination Host B, under the following conditions.
+
+																			 Each of the link transmission rates are 7.3 Mbps
+
+																			 The total distance from Host A to Host B along its path of transmisison is 113.5 km
+
+																			 The speed of propagation through the transmission medium is is 2.7 x 108 m/s
+
+																			 The packet size is 3.0 KiB
+
+																			 Remember that you must also uplink from Host A to the first router. Give answer in milliseconds, rounded to 1 decimal place, without units (e.g. for 0.12345 seconds you would enter "123.5" without the quotes).
+
+
+																			 .....
+
+																			 Suppose there are 5.0 routers in sequence between Host A and Host B, all of which use
+																			 store-and-forward routing. What is the total end-to-end delay for a packet originating from Host A with destination Host B,
+																			  under the following conditions.
+
+																			 Each of the link transmission rates are 7.3 Mbps
+
+																			 The total distance from Host A to Host B along its path of transmisison is 113.5 km
+
+																			 The speed of propagation through the transmission medium is is 2.7 x 108 m/s
+
+																			 The packet size is 3.0 KiB
+
+																			 Remember that you must also uplink from Host A to the first router. Give answer in milliseconds.
+
+																			 **
+																			 113.5 km = distance from host a to host
+
+																			 L = 3.0 KiB = 1024 x 3 x 8 = 24576 bits
+
+																			 R = 7.3 Mbps = 7.3 million bits/second
+																			  d = 113.5  * 1000 m
+
+																				s =  2.7 x 108 m/s
+
+																				routers = 5
+
+
+
+
+																			</span>
+
+
+
+																	<p> &emsp; -Colleen </p>
+																</div>
+                            <div class='content-wrapper w30 fr'>
+                                <a onclick="$('body').animatescroll();" class='ptr fr'><small>Go to Top</small></a>
+                            </div>
+                        </div>
+                </div>
+	</body>
+</html>
